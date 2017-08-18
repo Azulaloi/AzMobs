@@ -2,7 +2,10 @@ package az.azmobs.entity;
 
 import az.azmobs.AzMobs;
 import az.azmobs.client.RenderFireBat;
+import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.biome.Biome;
+import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.relauncher.Side;
@@ -16,7 +19,8 @@ public class ModEntities {
         int id = 1;
         EntityRegistry.registerModEntity(new ResourceLocation(AzMobs.MODID, "firebat"), EntityFireBat.class, "firebat", id++, AzMobs.instance, 64, 3, true, 0x7F0000, 0xCE3D00);
 
-//        LootTableList.register(EntityFireBat.LOOT);
+        EntityRegistry.addSpawn(EntityFireBat.class, 60, 1, 4, EnumCreatureType.MONSTER, BiomeDictionary.getBiomes(BiomeDictionary.Type.NETHER).toArray(new Biome[0]));
+//   LootTableList.register(EntityFireBat.LOOT);
     }
 
     @SideOnly(Side.CLIENT)

@@ -8,19 +8,20 @@ import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.EntitySelectors;
 import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
-import java.util.function.Predicate;
 
 /**
  * Created by Azulaloi on 8/18/2017
  */
-public class EntityFireBat extends EntityBat {
-    private static final DataParameter<Byte> HANGING = EntityDataManager.<Byte>createKey(EntityBat.class, DataSerializers.BYTE);
+public class EntityFireBat extends EntityBat { //TODO: Make bats louder/wider sound radius to give more warning
+    private static final DataParameter<Byte> HANGING = EntityDataManager.createKey(EntityBat.class, DataSerializers.BYTE);
 
     public EntityFireBat(World world){
         super(world);
@@ -30,7 +31,7 @@ public class EntityFireBat extends EntityBat {
 
     protected void entityInit(){
         super.entityInit();
-        this.dataManager.register(HANGING, Byte.valueOf((byte)0));
+        this.dataManager.register(HANGING, (byte) 0);
     }
 
     protected void applyEntityAttributes(){
@@ -66,9 +67,9 @@ public class EntityFireBat extends EntityBat {
         if (this.world.isRemote) {
             if (this.rand.nextInt(5) == 0) { //
                 this.world.spawnParticle(EnumParticleTypes.FLAME,
-                                         this.posX + (this.rand.nextDouble() * 0.8D) * (double) this.width,
-                                         (this.posY + ((double) this.height / 2)) + (this.rand.nextDouble() * 0.6D) * (double) this.height,
-                                         this.posZ + (this.rand.nextDouble() * 1.2D) * (double) this.width,
+                                         this.posX + (this.rand.nextDouble() - 0.5D) * (double) this.width,
+                                         this.posY + (this.rand.nextDouble() * 0.6D) * (double) this.height,
+                                         this.posZ + (this.rand.nextDouble() - 0.5D) * (double) this.width,
                                          0.0F, 0.0F, 0.0F);
             }
         }
@@ -104,7 +105,33 @@ public class EntityFireBat extends EntityBat {
         entity.applyEntityCollision(this);
 
         if (entity == this.getAttackTarget()){
-            entity.attackEntityFrom(DamageSource.causeMobDamage(this), 2.0F);
+            entity.attackEntityFrom(DamageSource.causeMobDamage(this), 2.0F); //TODO: Put a delay on this?
         }
+    }
+
+
+    public boolean attackEntityFrom(DamageSource src, float amount){
+        if (this.world.isRemote){
+            for (int i = 0; i < 8; ++i) {
+                this.world.spawnParticle(EnumParticleTypes.FLAME,
+                                         this.posX + (this.rand.nextDouble() - 0.5D) * (double)this.width,
+                                         this.posY + this.rand.nextDouble() * (double)this.height,
+                                         this.posZ + (this.rand.nextDouble() - 0.5D) * (double)this.width,
+                                         0.0D, 0.0D, 0.0D);
+            }
+        }
+        return super.attackEntityFrom(src, amount);
+    }
+
+    @Override
+    public boolean getCanSpawnHere(){ //TODO: Add config for this
+        if (this.world.getDifficulty() == EnumDifficulty.PEACEFUL){
+            return false;
+        } else if (this.rand.nextBoolean()){
+            BlockPos blockpos = new BlockPos(this.posX, this.getEntityBoundingBox().minY, this.posZ);
+            int i = this.world.getLightFromNeighbors(blockpos);
+            int j = 4;
+            return i <= this.rand.nextInt(j);
+        } else return false;
     }
 }

@@ -17,7 +17,7 @@ import javax.annotation.Nonnull;
  */
 public class RenderFireBat extends RenderLiving<EntityFireBat> {
 
-    private ResourceLocation texture = new ResourceLocation(AzMobs.MODID, "textures/entity/firebat.png");
+    private final ResourceLocation texture = new ResourceLocation(AzMobs.MODID, "textures/entity/firebat.png");
 
     public static final RenderFactory RENDER_FACTORY = new RenderFactory();
 
