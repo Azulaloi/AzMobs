@@ -8,8 +8,13 @@ import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.EntitySelectors;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
+
+import java.util.List;
+import java.util.function.Predicate;
 
 /**
  * Created by Azulaloi on 8/18/2017
@@ -43,7 +48,7 @@ public class EntityFireBat extends EntityBat {
         if (target == null || target.isDead){
             super.updateAITasks();
         } else if (target != null) { //Target is not, in fact, always true
-            //Based off of vanilla bat pathing. A little too tenacious, currently.
+            //Based off of vanilla bat pathing.
             double xP = target.posX + 0.0D - posX;
             double yP = target.posY + 0.7D - posY;
             double zP = target.posZ + 0.0D - posZ;
@@ -58,7 +63,15 @@ public class EntityFireBat extends EntityBat {
     @Override
     public void onLivingUpdate(){
         super.onLivingUpdate();
-        //particles here probably
+        if (this.world.isRemote) {
+            if (this.rand.nextInt(5) == 0) { //
+                this.world.spawnParticle(EnumParticleTypes.FLAME,
+                                         this.posX + (this.rand.nextDouble() * 0.8D) * (double) this.width,
+                                         (this.posY + ((double) this.height / 2)) + (this.rand.nextDouble() * 0.6D) * (double) this.height,
+                                         this.posZ + (this.rand.nextDouble() * 1.2D) * (double) this.width,
+                                         0.0F, 0.0F, 0.0F);
+            }
+        }
     }
     @Override
     public void setIsBatHanging(boolean isBatHanging){
@@ -68,5 +81,30 @@ public class EntityFireBat extends EntityBat {
     @Override
     public boolean getIsBatHanging(){
         return false;
+    }
+
+    @Override
+    public boolean canBePushed(){
+        return true;
+    }
+
+    @Override
+    protected void collideWithNearbyEntities() { //EntityBat is one of only two classes to override this method, so I have to reimplement it.
+        List<Entity> list = this.world.getEntitiesWithinAABBExcludingEntity(this, this.getEntityBoundingBox());
+
+        if (!list.isEmpty()) {
+            for (Entity entity : list) {
+                this.collideWithEntity(entity);
+            }
+        }
+    }
+
+    @Override
+    protected void collideWithEntity(Entity entity){ //The retardo method of attacking
+        entity.applyEntityCollision(this);
+
+        if (entity == this.getAttackTarget()){
+            entity.attackEntityFrom(DamageSource.causeMobDamage(this), 2.0F);
+        }
     }
 }
