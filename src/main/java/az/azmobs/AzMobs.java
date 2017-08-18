@@ -17,9 +17,9 @@ import org.apache.logging.log4j.Logger;
  */
 @Mod(modid = AzMobs.MODID, name = AzMobs.MODNAME, version = AzMobs.MODVERSION, useMetadata = true)
 public class AzMobs {
-    public static final String MODID = "azmod";
-    public static final String MODNAME = "AzMod";
-    public static final String MODVERSION = "0.0";
+    public static final String MODID = "azmobs";
+    public static final String MODNAME = "AzMobs";
+    public static final String MODVERSION = "0.0.1";
 
     @SidedProxy(clientSide = "az.azmobs.proxy.ClientProxy", serverSide = "az.azmobs.proxy.CommonProxy")
     public static CommonProxy proxy;

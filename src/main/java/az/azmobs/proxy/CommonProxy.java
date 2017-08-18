@@ -1,5 +1,6 @@
 package az.azmobs.proxy;
 
+import az.azmobs.entity.ModEntities;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -9,6 +10,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
  */
 public class CommonProxy{
     public void preInit(FMLPreInitializationEvent event){
+        ModEntities.init();
     }
 
     public void init(FMLInitializationEvent event){
