@@ -1,6 +1,8 @@
 package az.azmobs.entity;
 
+import az.azmobs.AzMobs;
 import net.minecraft.entity.monster.EntitySkeleton;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
 /**
