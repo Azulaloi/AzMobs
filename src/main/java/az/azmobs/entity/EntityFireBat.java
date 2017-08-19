@@ -1,5 +1,6 @@
 package az.azmobs.entity;
 
+import az.azmobs.AzMobs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIFindEntityNearestPlayer;
@@ -9,12 +10,12 @@ import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
-import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
 
 /**
@@ -27,6 +28,7 @@ public class EntityFireBat extends EntityBat { //TODO: Make bats louder/wider so
         super(world);
         this.setSize(0.5F, 0.9F);
         this.isImmuneToFire = true;
+        this.experienceValue = 7;
     }
 
     protected void entityInit(){
@@ -133,5 +135,10 @@ public class EntityFireBat extends EntityBat { //TODO: Make bats louder/wider so
             int j = 4;
             return i <= this.rand.nextInt(j);
         } else return false;
+    }
+
+    @Override
+    protected ResourceLocation getLootTable() {
+        return new ResourceLocation (AzMobs.MODID + ":mobs/firebat");
     }
 }
