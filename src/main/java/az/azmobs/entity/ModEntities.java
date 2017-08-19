@@ -3,6 +3,7 @@ package az.azmobs.entity;
 import az.azmobs.AzMobs;
 import az.azmobs.Config;
 import az.azmobs.client.RenderFireBat;
+import az.azmobs.client.RenderGilded;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
@@ -40,5 +41,6 @@ public class ModEntities {
     @SideOnly(Side.CLIENT)
     public static void initModels() {
         RenderingRegistry.registerEntityRenderingHandler(EntityFireBat.class, RenderFireBat.RENDER_FACTORY);
+        RenderingRegistry.registerEntityRenderingHandler(EntityGilded.class, RenderGilded.RENDER_FACTORY);
     }
 }
