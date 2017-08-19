@@ -1,6 +1,7 @@
 package az.azmobs.entity;
 
 import az.azmobs.AzMobs;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -13,8 +14,14 @@ import net.minecraft.world.World;
  * Created by Azulaloi on 8/18/2017
  */
 public class EntityGilded extends EntitySkeleton {
-    public EntityGilded(World worldIn) {
-        super(worldIn);
+    public EntityGilded(World world) {
+        super(world);
+        this.experienceValue = 18;
+    }
+
+    protected void applyEntityAttributes() {
+        super.applyEntityAttributes();
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(40.0D);
     }
 
     protected void setEquipmentBasedOnDifficulty(DifficultyInstance difficulty){
@@ -24,6 +31,11 @@ public class EntityGilded extends EntitySkeleton {
         } else {
             this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, ItemStack.EMPTY);
         }
+    }
+
+    public void onLivingUpdate() {
+        super.onLivingUpdate();
+        this.extinguish();
     }
 
     @Override
