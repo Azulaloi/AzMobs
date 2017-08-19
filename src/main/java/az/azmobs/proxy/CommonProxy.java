@@ -2,10 +2,14 @@ package az.azmobs.proxy;
 
 import az.azmobs.Config;
 import az.azmobs.entity.ModEntities;
+import az.azmobs.item.ModItems;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import java.io.File;
 
@@ -25,6 +29,7 @@ public class CommonProxy {
     }
 
     public void init(FMLInitializationEvent event) {
+        GameRegistry.addSmelting(ModItems.gildedBone, new ItemStack(Items.GOLD_NUGGET, 6), 2);
     }
 
     public void postInit(FMLPostInitializationEvent event) {
