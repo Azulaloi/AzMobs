@@ -15,7 +15,7 @@ import java.io.File;
 public class CommonProxy {
     public static Configuration config;
 
-    public void preInit(FMLPreInitializationEvent event){
+    public void preInit(FMLPreInitializationEvent event) {
         File dir = event.getSuggestedConfigurationFile();
         config = new Configuration(new File(dir.getPath()));
         Config.initConfig();
@@ -24,7 +24,7 @@ public class CommonProxy {
         ModEntities.init();
     }
 
-    public void init(FMLInitializationEvent event){
+    public void init(FMLInitializationEvent event) {
     }
 
     public void postInit(FMLPostInitializationEvent event) {

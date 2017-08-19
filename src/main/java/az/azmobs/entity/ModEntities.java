@@ -17,21 +17,28 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  */
 public class ModEntities {
     static boolean enableFirebat;
+    static boolean enableGilded;
 
-    public static void initConfig(){
+    public static void initConfig() {
         enableFirebat = Config.loadFirebat;
+        enableGilded = Config.loadGilded;
     }
 
-    public static void init(){
+    public static void init() {
         int id = 1;
         if (enableFirebat) {
             EntityRegistry.registerModEntity(new ResourceLocation(AzMobs.MODID, "firebat"), EntityFireBat.class, "firebat", id++, AzMobs.instance, 64, 3, true, 0x7F0000, 0xCE3D00);
             EntityRegistry.addSpawn(EntityFireBat.class, 60, 1, 4, EnumCreatureType.MONSTER, BiomeDictionary.getBiomes(BiomeDictionary.Type.NETHER).toArray(new Biome[0]));
         }
+
+        if (enableGilded) {
+            EntityRegistry.registerModEntity(new ResourceLocation(AzMobs.MODID, "gilded"), EntityGilded.class, "gilded", id++, AzMobs.instance, 64, 3, true, 0xFFFFFF, 0xFFF71E);
+            EntityRegistry.addSpawn(EntityGilded.class, 10, 1, 1, EnumCreatureType.MONSTER, BiomeDictionary.getBiomes(BiomeDictionary.Type.FOREST).toArray(new Biome[0]));
+        }
     }
 
     @SideOnly(Side.CLIENT)
-    public static void initModels(){
+    public static void initModels() {
         RenderingRegistry.registerEntityRenderingHandler(EntityFireBat.class, RenderFireBat.RENDER_FACTORY);
     }
 }

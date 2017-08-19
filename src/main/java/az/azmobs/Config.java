@@ -10,6 +10,7 @@ import org.apache.logging.log4j.Level;
 public class Config {
 
     public static boolean loadFirebat = true;
+    public static boolean loadGilded = true;
 
     public static void initConfig() {
         Configuration config = CommonProxy.config;
@@ -19,13 +20,14 @@ public class Config {
         } catch (Exception exception) {
             AzMobs.logger.log(Level.ERROR, "AzMobs: Exception loading config!", exception);
         } finally {
-            if (config.hasChanged()){
+            if (config.hasChanged()) {
                 config.save();
             }
         }
     }
 
-    public static void readConfig(Configuration config){
+    public static void readConfig(Configuration config) {
         loadFirebat = config.getBoolean("Enable Inferno Bat", "Inferno Bat", loadFirebat, "Set to false to disable Inferno Bats.");
+        loadGilded = config.getBoolean("Enable Gilded", "Gilded Skeleton", loadGilded, "Set to false to disable the Gilded.");
     }
 }

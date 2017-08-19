@@ -25,7 +25,7 @@ public class RenderFireBat extends RenderLiving<EntityFireBat> {
         super(man, new ModelBat(), 0.25F);
     }
 
-    protected void preRenderCallback(EntityFireBat entity, float partialTickTime){
+    protected void preRenderCallback(EntityFireBat entity, float partialTickTime) {
         GlStateManager.scale(0.35F, 0.35F, 0.35F);
     }
 

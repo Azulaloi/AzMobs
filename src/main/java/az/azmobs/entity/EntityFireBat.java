@@ -24,19 +24,19 @@ import java.util.List;
 public class EntityFireBat extends EntityBat { //TODO: Make bats louder/wider sound radius to give more warning
     private static final DataParameter<Byte> HANGING = EntityDataManager.createKey(EntityBat.class, DataSerializers.BYTE);
 
-    public EntityFireBat(World world){
+    public EntityFireBat(World world) {
         super(world);
         this.setSize(0.5F, 0.9F);
         this.isImmuneToFire = true;
         this.experienceValue = 7;
     }
 
-    protected void entityInit(){
+    protected void entityInit() {
         super.entityInit();
         this.dataManager.register(HANGING, (byte) 0);
     }
 
-    protected void applyEntityAttributes(){
+    protected void applyEntityAttributes() {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(6.0D); //3 hearts
     }
@@ -46,9 +46,9 @@ public class EntityFireBat extends EntityBat { //TODO: Make bats louder/wider so
     }
 
     @Override
-    protected void updateAITasks(){
+    protected void updateAITasks() {
         Entity target = this.getAttackTarget();
-        if (target == null || target.isDead){
+        if (target == null || target.isDead) {
             super.updateAITasks();
         } else if (target != null) { //Target is not, in fact, always true
             //Based off of vanilla bat pathing.
@@ -64,7 +64,7 @@ public class EntityFireBat extends EntityBat { //TODO: Make bats louder/wider so
     }
 
     @Override
-    public void onLivingUpdate(){
+    public void onLivingUpdate() {
         super.onLivingUpdate();
         if (this.world.isRemote) {
             if (this.rand.nextInt(5) == 0) { //
@@ -77,7 +77,7 @@ public class EntityFireBat extends EntityBat { //TODO: Make bats louder/wider so
         }
     }
     @Override
-    public void setIsBatHanging(boolean isBatHanging){
+    public void setIsBatHanging(boolean isBatHanging) {
         //no.
     }
 
@@ -103,16 +103,16 @@ public class EntityFireBat extends EntityBat { //TODO: Make bats louder/wider so
     }
 
     @Override
-    protected void collideWithEntity(Entity entity){ //The retardo method of attacking
+    protected void collideWithEntity(Entity entity) { //The retardo method of attacking
         entity.applyEntityCollision(this);
 
-        if (entity == this.getAttackTarget()){
+        if (entity == this.getAttackTarget()) {
             entity.attackEntityFrom(DamageSource.causeMobDamage(this), 2.0F); //TODO: Put a delay on this?
         }
     }
 
 
-    public boolean attackEntityFrom(DamageSource src, float amount){
+    public boolean attackEntityFrom(DamageSource src, float amount) {
         if (this.world.isRemote){
             for (int i = 0; i < 8; ++i) {
                 this.world.spawnParticle(EnumParticleTypes.FLAME,
@@ -126,10 +126,10 @@ public class EntityFireBat extends EntityBat { //TODO: Make bats louder/wider so
     }
 
     @Override
-    public boolean getCanSpawnHere(){ //TODO: Add config for this
-        if (this.world.getDifficulty() == EnumDifficulty.PEACEFUL){
+    public boolean getCanSpawnHere() { //TODO: Add config for this
+        if (this.world.getDifficulty() == EnumDifficulty.PEACEFUL) {
             return false;
-        } else if (this.rand.nextBoolean()){
+        } else if (this.rand.nextBoolean()) {
             BlockPos blockpos = new BlockPos(this.posX, this.getEntityBoundingBox().minY, this.posZ);
             int i = this.world.getLightFromNeighbors(blockpos);
             int j = 4;
