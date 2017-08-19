@@ -6,7 +6,7 @@ import net.minecraftforge.client.model.ModelLoader;
 
 public class AzUtil {
 
-    public static void registerItemModel(Item item){
+    public static void registerItemModel(Item item) {
         ModelLoader.setCustomModelResourceLocation(
                 item,
                 0,

@@ -12,4 +12,9 @@ public class EntityGilded extends EntitySkeleton {
     public EntityGilded(World worldIn) {
         super(worldIn);
     }
+
+    @Override
+    protected ResourceLocation getLootTable() {
+        return new ResourceLocation (AzMobs.MODID + ":mobs/gilded");
+    }
 }

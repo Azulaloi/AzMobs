@@ -9,7 +9,7 @@ import net.minecraftforge.fml.common.Loader;
 public class BaseItem extends Item {
     public String ID = Loader.instance().activeModContainer().getModId().toLowerCase();
 
-    public BaseItem(String name, CreativeTabs creativeTab){
+    public BaseItem(String name, CreativeTabs creativeTab) {
         setUnlocalizedName(ID + "." + name);
         setRegistryName(name);
         if (creativeTab != null) {
@@ -17,7 +17,7 @@ public class BaseItem extends Item {
         }
     }
 
-    public BaseItem(String name){
+    public BaseItem(String name) {
         setUnlocalizedName(ID + "." + name);
         setRegistryName(name);
     }
