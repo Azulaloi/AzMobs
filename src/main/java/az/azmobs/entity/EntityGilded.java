@@ -17,7 +17,7 @@ public class EntityGilded extends EntitySkeleton {
     public EntityGilded(World world) {
         super(world);
         this.experienceValue = 18;
-    }
+    } //TODO: Make an acceptable texture
 
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
@@ -41,5 +41,5 @@ public class EntityGilded extends EntitySkeleton {
     @Override
     protected ResourceLocation getLootTable() {
         return new ResourceLocation (AzMobs.MODID + ":mobs/gilded");
-    }
+    } //TODO: Add gilded skull
 }

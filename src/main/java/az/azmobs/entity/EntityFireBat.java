@@ -140,5 +140,5 @@ public class EntityFireBat extends EntityBat { //TODO: Make bats louder/wider so
     @Override
     protected ResourceLocation getLootTable() {
         return new ResourceLocation (AzMobs.MODID + ":mobs/firebat");
-    }
+    } //TODO: Add interesting loot
 }

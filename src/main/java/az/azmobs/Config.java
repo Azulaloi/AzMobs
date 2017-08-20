@@ -27,6 +27,7 @@ public class Config {
     }
 
     public static void readConfig(Configuration config) {
+        //TODO: More config options? EX. Group sizes, spawn weights, loot drops, stats?, a "hard" mode (eg. suicide bats), etc.
         loadFirebat = config.getBoolean("Enable Inferno Bat", "Inferno Bat", loadFirebat, "Set to false to disable Inferno Bats.");
         loadGilded = config.getBoolean("Enable Gilded", "Gilded Skeleton", loadGilded, "Set to false to disable the Gilded.");
     }

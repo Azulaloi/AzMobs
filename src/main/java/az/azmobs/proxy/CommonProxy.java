@@ -29,6 +29,8 @@ public class CommonProxy {
     }
 
     public void init(FMLInitializationEvent event) {
+        //This is injected during init, so the amount is set, however, it may
+        //be possible to randomize the returned quantity using getresult
         GameRegistry.addSmelting(ModItems.gildedBone, new ItemStack(Items.GOLD_NUGGET, 6), 2);
     }
 

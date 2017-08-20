@@ -26,6 +26,8 @@ public class ModEntities {
     }
 
     public static void init() {
+        //TODO: Method for gathering a list all biomes containing a specific mob spawn
+        //TODO: See if there's a way (make one) to replace spawns non-biome-specifically, such as under a certain depth
         int id = 1;
         if (enableFirebat) {
             EntityRegistry.registerModEntity(new ResourceLocation(AzMobs.MODID, "firebat"), EntityFireBat.class, "firebat", id++, AzMobs.instance, 64, 3, true, 0x7F0000, 0xCE3D00);
