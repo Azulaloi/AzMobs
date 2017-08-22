@@ -4,9 +4,6 @@ import az.azmobs.proxy.CommonProxy;
 import net.minecraftforge.common.config.Configuration;
 import org.apache.logging.log4j.Level;
 
-/**
- * Created by Azulaloi on 8/18/2017
- */
 public class Config {
 
     public static boolean loadFirebat = true;

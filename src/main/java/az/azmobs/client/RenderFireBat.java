@@ -12,9 +12,6 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 import javax.annotation.Nonnull;
 
-/**
- * Created by Azulaloi on 8/18/2017
- */
 public class RenderFireBat extends RenderLiving<EntityFireBat> {
 
     private final ResourceLocation texture = new ResourceLocation(AzMobs.MODID, "textures/entity/firebat.png");

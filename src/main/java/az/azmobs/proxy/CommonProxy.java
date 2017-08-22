@@ -13,9 +13,6 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import java.io.File;
 
-/**
- * Created by Azulaloi on 8/18/2017.
- */
 public class CommonProxy {
     public static Configuration config;
 

@@ -10,9 +10,6 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-/**
- * Created by Azulaloi on 8/18/2017
- */
 @Mod(modid = AzMobs.MODID, name = AzMobs.MODNAME, version = AzMobs.MODVERSION, useMetadata = true)
 public class AzMobs {
     public static final String MODID = "azmobs";

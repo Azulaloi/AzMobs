@@ -13,9 +13,6 @@ import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-/**
- * Created by Azulaloi on 8/18/2017
- */
 public class ModEntities {
     static boolean enableFirebat;
     static boolean enableGilded;

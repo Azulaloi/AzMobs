@@ -18,9 +18,6 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-/**
- * Created by Azulaloi on 8/18/2017
- */
 public class EntityFireBat extends EntityBat { //TODO: Make bats louder/wider sound radius to give more warning
     private static final DataParameter<Byte> HANGING = EntityDataManager.createKey(EntityBat.class, DataSerializers.BYTE);
 
