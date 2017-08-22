@@ -37,6 +37,7 @@ public class ModEntities {
         if (enableGilded) {
             EntityRegistry.registerModEntity(new ResourceLocation(AzMobs.MODID, "gilded"), EntityGilded.class, "gilded", id++, AzMobs.instance, 64, 3, true, 0xFFFFFF, 0xFFF71E);
             EntityRegistry.addSpawn(EntityGilded.class, 7, 1, 1, EnumCreatureType.MONSTER, BiomeDictionary.getBiomes(BiomeDictionary.Type.FOREST).toArray(new Biome[0]));
+            //TODO: Add these to more biomes less commonly, and make certain biomes (forest, esp roofed) a little more common)
         }
     }
 
