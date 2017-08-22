@@ -4,7 +4,9 @@ import az.azmobs.AzMobs;
 import az.azmobs.Config;
 import az.azmobs.client.RenderFireBat;
 import az.azmobs.client.RenderGilded;
+import az.azmobs.client.RenderViridis;
 import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.entity.monster.EntitySpider;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
@@ -16,10 +18,12 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class ModEntities {
     static boolean enableFirebat;
     static boolean enableGilded;
+    static boolean enableViridis;
 
     public static void initConfig() {
         enableFirebat = Config.loadFirebat;
         enableGilded = Config.loadGilded;
+        enableViridis = Config.loadViridis;
     }
 
     public static void init() {
@@ -36,11 +40,21 @@ public class ModEntities {
             EntityRegistry.addSpawn(EntityGilded.class, 7, 1, 1, EnumCreatureType.MONSTER, BiomeDictionary.getBiomes(BiomeDictionary.Type.FOREST).toArray(new Biome[0]));
             //TODO: Add these to more biomes less commonly, and make certain biomes (forest, esp roofed) a little more common)
         }
+
+        if (enableViridis) {
+            EntityRegistry.registerModEntity(new ResourceLocation(AzMobs.MODID, "viridis"), EntityViridis.class, "viridis", id++, AzMobs.instance, 64, 3, true, 0x2A700A, 0x69E553);
+            Biome[] jungleBiomes = BiomeDictionary.getBiomes(BiomeDictionary.Type.JUNGLE).toArray(new Biome[0]);
+            EntityRegistry.removeSpawn(EntitySpider.class, EnumCreatureType.MONSTER, jungleBiomes);
+            EntityRegistry.addSpawn(EntitySpider.class, 20, 4, 4, EnumCreatureType.MONSTER, jungleBiomes);
+            EntityRegistry.addSpawn(EntityViridis.class, 80, 2, 3, EnumCreatureType.MONSTER, BiomeDictionary.getBiomes(BiomeDictionary.Type.JUNGLE).toArray(new Biome[0]));
+            //Spawn needs more tweaking. Something's not working right.
+        }
     }
 
     @SideOnly(Side.CLIENT)
     public static void initModels() {
         RenderingRegistry.registerEntityRenderingHandler(EntityFireBat.class, RenderFireBat.RENDER_FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(EntityGilded.class, RenderGilded.RENDER_FACTORY);
+        RenderingRegistry.registerEntityRenderingHandler(EntityViridis.class, RenderViridis.RENDER_FACTORY);
     }
 }

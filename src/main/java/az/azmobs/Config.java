@@ -8,6 +8,7 @@ public class Config {
 
     public static boolean loadFirebat = true;
     public static boolean loadGilded = true;
+    public static boolean loadViridis = true;
 
     public static void initConfig() {
         Configuration config = CommonProxy.config;
@@ -27,5 +28,6 @@ public class Config {
         //TODO: More config options? EX. Group sizes, spawn weights, loot drops, stats?, a "hard" mode (eg. suicide bats), etc.
         loadFirebat = config.getBoolean("Enable Inferno Bat", "Inferno Bat", loadFirebat, "Set to false to disable Inferno Bats.");
         loadGilded = config.getBoolean("Enable Gilded", "Gilded Skeleton", loadGilded, "Set to false to disable the Gilded.");
+        loadGilded = config.getBoolean("Enable Viridis", "Viridis Spider", loadViridis, "Set to false to disable Viridi.");
     }
 }
