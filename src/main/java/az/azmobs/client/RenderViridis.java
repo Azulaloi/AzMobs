@@ -28,13 +28,13 @@ public class RenderViridis<T extends EntityViridis> extends RenderLiving<T> {
 
     @Override
     @Nonnull
-    protected ResourceLocation getEntityTexture(T entity){
+    protected ResourceLocation getEntityTexture(T entity) {
         return texture;
     }
 
     public static class RenderFactory implements IRenderFactory<EntityViridis> {
         @Override
-        public Render<? super EntityViridis> createRenderFor(RenderManager man){
+        public Render<? super EntityViridis> createRenderFor(RenderManager man) {
             return new RenderViridis(man);
         }
     }

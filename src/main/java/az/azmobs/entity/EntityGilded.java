@@ -23,7 +23,7 @@ public class EntityGilded extends EntitySkeleton {
         this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(5.0D);
     }
 
-    protected void setEquipmentBasedOnDifficulty(DifficultyInstance difficulty){
+    protected void setEquipmentBasedOnDifficulty(DifficultyInstance difficulty) {
         super.setEquipmentBasedOnDifficulty(difficulty);
         if (this.rand.nextInt(3) == 0) {
             this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(Items.GOLDEN_SWORD));

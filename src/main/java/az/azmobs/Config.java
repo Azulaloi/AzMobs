@@ -10,6 +10,8 @@ public class Config {
     public static boolean loadGilded = true;
     public static boolean loadViridis = true;
 
+    public static boolean verboseLogging = false;
+
     public static void initConfig() {
         Configuration config = CommonProxy.config;
         try{
@@ -29,5 +31,7 @@ public class Config {
         loadFirebat = config.getBoolean("Enable Inferno Bat", "Inferno Bat", loadFirebat, "Set to false to disable Inferno Bats.");
         loadGilded = config.getBoolean("Enable Gilded", "Gilded Skeleton", loadGilded, "Set to false to disable the Gilded.");
         loadGilded = config.getBoolean("Enable Viridis", "Viridis Spider", loadViridis, "Set to false to disable Viridi.");
+
+        verboseLogging = config.getBoolean("Verbose Logging", "Debug", verboseLogging, "Set to true for more log info.");
     }
 }

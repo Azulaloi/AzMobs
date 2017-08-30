@@ -110,7 +110,7 @@ public class EntityFireBat extends EntityBat { //TODO: Make bats louder/wider so
 
 
     public boolean attackEntityFrom(DamageSource src, float amount) {
-        if (this.world.isRemote){
+        if (this.world.isRemote) {
             for (int i = 0; i < 8; ++i) {
                 this.world.spawnParticle(EnumParticleTypes.FLAME,
                                          this.posX + (this.rand.nextDouble() - 0.5D) * (double)this.width,

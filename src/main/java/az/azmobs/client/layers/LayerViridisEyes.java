@@ -12,8 +12,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class LayerViridisEyes<T extends EntityViridis> implements LayerRenderer<T>
-{
+public class LayerViridisEyes<T extends EntityViridis> implements LayerRenderer<T> {
     private static final ResourceLocation EYES = new ResourceLocation(AzMobs.MODID, "textures/entity/viridis_eyes.png");
     private final RenderViridis<T> viridisRenderer;
 

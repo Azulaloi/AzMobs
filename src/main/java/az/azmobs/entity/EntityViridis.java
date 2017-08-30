@@ -14,9 +14,9 @@ public class EntityViridis extends EntitySpider {
     }
 
     @Override
-    public boolean attackEntityAsMob(Entity entity){
+    public boolean attackEntityAsMob(Entity entity) {
         boolean sb = super.attackEntityAsMob(entity);
-        if (sb && entity instanceof EntityLivingBase){
+        if (sb && entity instanceof EntityLivingBase) {
             float diff = this.world.getDifficultyForLocation(new BlockPos(this)).getAdditionalDifficulty();
             float amp = diff > 2.0F ? 1 : 0;
             ((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 140 * (int)diff, (int)amp));
