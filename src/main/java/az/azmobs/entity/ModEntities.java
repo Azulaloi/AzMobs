@@ -44,10 +44,10 @@ public class ModEntities {
         if (enableViridis) {
             EntityRegistry.registerModEntity(new ResourceLocation(AzMobs.MODID, "viridis"), EntityViridis.class, "viridis", id++, AzMobs.instance, 64, 3, true, 0x2A700A, 0x69E553);
             Biome[] jungleBiomes = BiomeDictionary.getBiomes(BiomeDictionary.Type.JUNGLE).toArray(new Biome[0]);
-            EntityRegistry.removeSpawn(EntitySpider.class, EnumCreatureType.MONSTER, jungleBiomes);
-            EntityRegistry.addSpawn(EntitySpider.class, 20, 4, 4, EnumCreatureType.MONSTER, jungleBiomes);
-            EntityRegistry.addSpawn(EntityViridis.class, 80, 2, 3, EnumCreatureType.MONSTER, BiomeDictionary.getBiomes(BiomeDictionary.Type.JUNGLE).toArray(new Biome[0]));
-            //Spawn needs more tweaking. Something's not working right.
+
+            //This should automatically tweak the existing spawn entry, rather than add.
+            EntityRegistry.addSpawn(EntitySpider.class, 10, 4, 4, EnumCreatureType.MONSTER, jungleBiomes);
+            EntityRegistry.addSpawn(EntityViridis.class, 90, 2, 3, EnumCreatureType.MONSTER, jungleBiomes);
         }
     }
 
