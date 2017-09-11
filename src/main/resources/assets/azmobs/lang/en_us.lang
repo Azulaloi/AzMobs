@@ -2,4 +2,5 @@ entity.firebat.name=Inferno Bat
 entity.gilded.name=Gilded
 entity.viridis.name=Viridis
 
-item.azmobs.gildedbone.name=Gilded Bone
+item.azmobs.gilded_bone.name=Gilded Bone
+item.azmobs.gilded_skull.name=Gilded Skull
