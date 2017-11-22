@@ -3,6 +3,7 @@ package az.azmobs.entity;
 import az.azmobs.AzMobs;
 import az.azmobs.Config;
 import az.azmobs.client.RenderFireBat;
+import az.azmobs.client.RenderGelum;
 import az.azmobs.client.RenderGilded;
 import az.azmobs.client.RenderViridis;
 import az.azmobs.util.AzUtil;
@@ -20,11 +21,13 @@ public class ModEntities {
     static boolean enableFirebat;
     static boolean enableGilded;
     static boolean enableViridis;
+    static boolean enableGelum;
 
     public static void initConfig() {
         enableFirebat = Config.loadFirebat;
         enableGilded = Config.loadGilded;
         enableViridis = Config.loadViridis;
+        enableGelum = Config.loadGelum;
     }
 
     public static void init() {
@@ -54,6 +57,13 @@ public class ModEntities {
             EntityRegistry.addSpawn(EntitySpider.class, 10, 4, 4, EnumCreatureType.MONSTER, jungleBiomes);
             EntityRegistry.addSpawn(EntityViridis.class, 90, 2, 3, EnumCreatureType.MONSTER, jungleBiomes);
         }
+
+        if (enableGelum) {
+            AzUtil.verboseLog("Registering Gelum");
+            EntityRegistry.registerModEntity(new ResourceLocation(AzMobs.MODID, "gelum"), EntityGelum.class, "gelum", id++, AzMobs.instance, 64, 3, true, 0xedf0f4, 0xffaa00);
+
+            EntityRegistry.addSpawn(EntityGelum.class, 15, 2, 3, EnumCreatureType.CREATURE, BiomeDictionary.getBiomes(BiomeDictionary.Type.SNOWY).toArray(new Biome[0]));
+        }
     }
 
     @SideOnly(Side.CLIENT)
@@ -63,5 +73,6 @@ public class ModEntities {
         RenderingRegistry.registerEntityRenderingHandler(EntityFireBat.class, RenderFireBat.RENDER_FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(EntityGilded.class, RenderGilded.RENDER_FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(EntityViridis.class, RenderViridis.RENDER_FACTORY);
+        RenderingRegistry.registerEntityRenderingHandler(EntityGelum.class, RenderGelum.RENDER_FACTORY);
     }
 }

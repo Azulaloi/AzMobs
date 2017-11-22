@@ -9,6 +9,7 @@ public class Config {
     public static boolean loadFirebat = true;
     public static boolean loadGilded = true;
     public static boolean loadViridis = true;
+    public static boolean loadGelum = true;
 
     public static boolean verboseLogging = false;
 
@@ -31,6 +32,7 @@ public class Config {
         loadFirebat = config.getBoolean("Enable Inferno Bat", "Inferno Bat", loadFirebat, "Set to false to disable Inferno Bats.");
         loadGilded = config.getBoolean("Enable Gilded", "Gilded Skeleton", loadGilded, "Set to false to disable the Gilded.");
         loadGilded = config.getBoolean("Enable Viridis", "Viridis Spider", loadViridis, "Set to false to disable Viridi.");
+        loadGelum = config.getBoolean("Enable Gelum", "Gelum", loadGelum, "Set to false to disable Geluma.");
 
         verboseLogging = config.getBoolean("Verbose Logging", "Debug", verboseLogging, "Set to true for more log info.");
     }
