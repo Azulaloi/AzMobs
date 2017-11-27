@@ -14,18 +14,22 @@ public class ModItems {
 
     public static BaseItem gildedBone = new BaseItem("gilded_bone", CreativeTabs.MISC);
     public static ItemGildedSkull gildedSkull = new ItemGildedSkull();
+//    public static BaseItem bloomMilk = new BaseItem("bloom_milk", CreativeTabs.FOOD);
+    public static ItemBloomMilk bloomMilk = new ItemBloomMilk();
 
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
         event.getRegistry().registerAll(
                 gildedBone,
-                gildedSkull
+                gildedSkull,
+                bloomMilk
         );
 
         if (AzMobs.proxy instanceof ClientProxy) {
             AzUtil.registerItemModels(
                     gildedBone,
-                    gildedSkull
+                    gildedSkull,
+                    bloomMilk
             );
 
             gildedSkull.regSpecialModel();

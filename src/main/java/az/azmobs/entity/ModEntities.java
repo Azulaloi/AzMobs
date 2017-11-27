@@ -2,10 +2,7 @@ package az.azmobs.entity;
 
 import az.azmobs.AzMobs;
 import az.azmobs.Config;
-import az.azmobs.client.RenderFireBat;
-import az.azmobs.client.RenderGelum;
-import az.azmobs.client.RenderGilded;
-import az.azmobs.client.RenderViridis;
+import az.azmobs.client.*;
 import az.azmobs.util.AzUtil;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.monster.EntitySpider;
@@ -22,12 +19,14 @@ public class ModEntities {
     static boolean enableGilded;
     static boolean enableViridis;
     static boolean enableGelum;
+    static boolean enableMoobloom;
 
     public static void initConfig() {
         enableFirebat = Config.loadFirebat;
         enableGilded = Config.loadGilded;
         enableViridis = Config.loadViridis;
         enableGelum = Config.loadGelum;
+        enableMoobloom = Config.loadMoobloom;
     }
 
     public static void init() {
@@ -64,6 +63,13 @@ public class ModEntities {
 
             EntityRegistry.addSpawn(EntityGelum.class, 15, 2, 3, EnumCreatureType.CREATURE, BiomeDictionary.getBiomes(BiomeDictionary.Type.SNOWY).toArray(new Biome[0]));
         }
+
+        if (enableMoobloom) {
+            AzUtil.verboseLog("Register Moobloon");
+            EntityRegistry.registerModEntity(new ResourceLocation(AzMobs.MODID, "moobloom"), EntityMoobloom.class, "moobloom", id++, AzMobs.instance, 64, 3, true, 0xE5C4E7, 0xE2E2E2);
+
+            EntityRegistry.addSpawn(EntityMoobloom.class, 60, 2, 5, EnumCreatureType.CREATURE, Biome.getBiome(132));
+        }
     }
 
     @SideOnly(Side.CLIENT)
@@ -74,5 +80,6 @@ public class ModEntities {
         RenderingRegistry.registerEntityRenderingHandler(EntityGilded.class, RenderGilded.RENDER_FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(EntityViridis.class, RenderViridis.RENDER_FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(EntityGelum.class, RenderGelum.RENDER_FACTORY);
+        RenderingRegistry.registerEntityRenderingHandler(EntityMoobloom.class, RenderMoobloom.RENDER_FACTORY);
     }
 }
