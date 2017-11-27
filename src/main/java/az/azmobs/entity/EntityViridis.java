@@ -1,10 +1,12 @@
 package az.azmobs.entity;
 
+import az.azmobs.AzMobs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntitySpider;
 import net.minecraft.init.MobEffects;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
@@ -23,5 +25,10 @@ public class EntityViridis extends EntitySpider {
             ((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.MINING_FATIGUE, 140 * (int)diff, (int)amp));
         }
         return sb;
+    }
+
+    @Override
+    protected ResourceLocation getLootTable() {
+        return new ResourceLocation (AzMobs.MODID + ":mobs/viridis");
     }
 }
