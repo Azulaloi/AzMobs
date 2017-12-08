@@ -1,9 +1,7 @@
 package az.menagerie.client;
 
 import az.menagerie.Menagerie;
-import az.menagerie.client.layers.LayerMoobloomBloom;
 import az.menagerie.entity.EntityMoobloom;
-import net.minecraft.client.model.ModelCow;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
@@ -22,13 +20,8 @@ public class RenderMoobloom extends RenderLiving<EntityMoobloom> {
     public static final RenderFactory RENDER_FACTORY = new RenderFactory();
 
     public RenderMoobloom(RenderManager man) {
-        super(man, new ModelCow(), 0.7F);
-        this.addLayer(new LayerMoobloomBloom(this));
-    }
+        super(man, new ModelMoobloom(12, 0.0F), 0.7F);
 
-    public ModelCow getMainModel()
-    {
-        return (ModelCow)super.getMainModel();
     }
 
     @Override
