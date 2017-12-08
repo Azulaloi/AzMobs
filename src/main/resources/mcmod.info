@@ -2,7 +2,7 @@
   "modid": "azmobs",
   "name": "AzMobs",
   "description": "Adds a manageable menagerie of mostly malicious mobs.",
-  "version": "Internal",
+  "version": "0.0.0",
   "url": "https://github.com/Azulaloi/AzMobs",
   "authorList": ["Azulaloi"]
 }]
