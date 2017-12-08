@@ -21,6 +21,7 @@ entity.hellhare.name=Hellhare
 entity.lavamander.name=Lavamander
 entity.bluewither.name=Weeping Skeleton
 entity.revenant.name=Revenant Pigman
+entity.pentaghast.name=Pentaghast
 
 entity.forestbear.name=Bear
 entity.fox.name=Fox
@@ -48,6 +49,7 @@ entity.voidcultist.name=Moon Terminator Illusionist
 entity.snowsprite.name=Snowsprite
 entity.dragonfly.name=Dragonfly
 entity.drake.name=Drake
+entity.nightgaunt.name=Nightgaunt
 
 entity.seahorse.name=Seahorse
 entity.dolphin.name=Dolphin
@@ -70,7 +72,7 @@ item.menagerie.blast_milk.name=Blast Milk
 item.menagerie.blast_bottle.name=Bottle of Blast Milk
 item.menagerie.bottle_o_blast.name= Bottle o' Blast
 item.menagerie.unstable_curd.name=Unstable Curd
-
+item.menagerie.hazardous_custard.name=Hazardous Custard
 
 item.menagerie.gloom_milk.name=Gloom Milk
 item.menagerie.umbral_cream.name=Umbral Cream
