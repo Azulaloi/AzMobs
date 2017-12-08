@@ -1,0 +1,88 @@
+entity.firebat.name=Inferno Bat
+entity.gilded.name=Gilded
+entity.viridis.name=Viridis
+entity.gelum.name=Gelum
+
+entity.moobloom.name=Moobloom
+entity.moodoom.name=Moodoom
+entity.mooboom.name=Mooboom
+entity.moogloom.name=Moogloom
+
+entity.frog.name=Frog
+entity.toad.name=Toad
+entity.junglefrog.name=Poison Frog
+
+entity.mouse.name=Field Mouse
+entity.caverat.name=Cave Rat
+
+entity.inferno.name=Inferno
+entity.hellhound.name=Hellhound
+entity.hellhare.name=Hellhare
+entity.lavamander.name=Lavamander
+entity.bluewither.name=Weeping Skeleton
+entity.revenant.name=Revenant Pigman
+
+entity.forestbear.name=Bear
+entity.fox.name=Fox
+entity.duck.name=Duck
+entity.bird.name=Bird
+entity.snake.name=Snake
+entity.lizard.name=Lizard
+
+entity.bonewolf.name=Bonewolf
+entity.druid.name=Undead Druid
+entity.stonebound.name=Stonebound Spider
+entity.caverncreeper.name=Cavern Creeper
+entity.vikingzombie.name=Frozen Viking
+entity.poltergeist.name=Poltergeist
+
+entity.chorusbeetle.name=Chorus Beetle
+entity.aerozoan.name=Aerozoan
+entity.skvader.name=Wolptertinger
+entity.mysthound.name=Mysthound
+entity.pegasus.name=Pegasus
+entity.catamount.name=Catamount
+entity.caracal.name=Caracal
+entity.lunarhare.name=Lunar Hare
+entity.voidcultist.name=Moon Terminator Illusionist
+entity.snowsprite.name=Snowsprite
+entity.dragonfly.name=Dragonfly
+entity.drake.name=Drake
+
+entity.seahorse.name=Seahorse
+entity.dolphin.name=Dolphin
+entity.turtle.name=Turtle
+
+entity.gilded_agglomeration.name=Gilded Agglomeration
+entity.cobble_golem.name=Cobble Golem
+entity.king_toad.name=King Toad
+
+item.menagerie.gilded_bone.name=Gilded Bone
+item.menagerie.gilded_skull.name=Gilded Skull
+
+item.menagerie.bloom_milk.name=Bloom Milk
+item.menagerie.bloom_bottle.name=Bottle of Bloom Milk
+item.menagerie.bottle_o_bloom.name=Bottle o' Bloom
+item.menagerie.bloom_cake.name=Bloom Cake
+item.menagerie.bloom_biscuit.name=Bloom Biscuit
+
+item.menagerie.blast_milk.name=Blast Milk
+item.menagerie.blast_bottle.name=Bottle of Blast Milk
+item.menagerie.bottle_o_blast.name= Bottle o' Blast
+item.menagerie.unstable_curd.name=Unstable Curd
+
+
+item.menagerie.gloom_milk.name=Gloom Milk
+item.menagerie.umbral_cream.name=Umbral Cream
+
+item.menagerie.doom_milk.name=Doom Milk
+item.menagerie.nefarious_nectar.name=Nefarious Nectar
+
+item.menagerie.creeper_milk.name=Sulfuric Pseudo-milk
+
+item.menagerie.ratpelt.name=Rat Pelt
+item.menagerie.rathide.name=Rat Hide
+item.menagerie.ratgarb_hood.name=Ratgarb Hood
+item.menagerie.ratgarb_vest.name=Ratgarb Vest
+item.menagerie.ratgarb_trousers.name=Ratgarb Trousers
+item.menagerie.ratgarb_boots.name=Ratgarb Boots

@@ -1,6 +1,6 @@
 [{
-  "modid": "azmobs",
-  "name": "AzMobs",
+  "modid": "menagerie",
+  "name": "Menagerie",
   "description": "Adds a manageable menagerie of mostly malicious mobs.",
   "version": "0.0.0",
   "url": "https://github.com/Azulaloi/AzMobs",
