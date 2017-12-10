@@ -21,6 +21,7 @@ public class ModEntities {
     static boolean enableGelum;
     static boolean enableMoobloom;
     static boolean enableFrog;
+    static boolean enableDuck;
 
     public static void initConfig() {
         enableFirebat = Config.loadFirebat;
@@ -29,6 +30,7 @@ public class ModEntities {
         enableGelum = Config.loadGelum;
         enableMoobloom = Config.loadMoobloom;
         enableFrog = Config.loadFrog;
+        enableDuck = Config.loadDuck;
     }
 
     public static void init() {
@@ -75,9 +77,14 @@ public class ModEntities {
 
         if (enableFrog) {
             AzUtil.verboseLog("Registering Frog");
-            EntityRegistry.registerModEntity(new ResourceLocation(Menagerie.MODID, "frog"), EntityFrog.class, "frog", id++, Menagerie.instance, 64, 3, true, 0xE5C4E7, 0xE2E2E2);
+            EntityRegistry.registerModEntity(new ResourceLocation(Menagerie.MODID, "frog"), EntityFrog.class, "frog", id++, Menagerie.instance, 64, 3, true, 0x999966, 0x99cc00);
 
 
+        }
+
+        if (enableDuck) {
+            AzUtil.verboseLog("Registering Duck");
+            EntityRegistry.registerModEntity(new ResourceLocation(Menagerie.MODID, "duck"), EntityDuck.class, "duck", id++, Menagerie.instance, 64, 3, true, 0x996633, 0x336600);
         }
     }
 
@@ -91,5 +98,6 @@ public class ModEntities {
         RenderingRegistry.registerEntityRenderingHandler(EntityGelum.class, RenderGelum.RENDER_FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(EntityMoobloom.class, RenderMoobloom.RENDER_FACTORY);
         RenderingRegistry.registerEntityRenderingHandler(EntityFrog.class, RenderFrog.RENDER_FACTORY);
+        RenderingRegistry.registerEntityRenderingHandler(EntityDuck.class, RenderDuck.RENDER_FACTORY);
     }
 }

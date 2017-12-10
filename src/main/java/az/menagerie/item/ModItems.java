@@ -14,22 +14,27 @@ public class ModItems {
 
     public static BaseItem gildedBone = new BaseItem("gilded_bone", CreativeTabs.MISC);
     public static ItemGildedSkull gildedSkull = new ItemGildedSkull();
-//    public static BaseItem bloomMilk = new BaseItem("bloom_milk", CreativeTabs.FOOD);
     public static ItemBloomMilk bloomMilk = new ItemBloomMilk();
+    public static ItemDuckMeat duckMeatRaw = new ItemDuckMeat("duck_raw", true, 1, 0);
+    public static ItemDuckMeat duckMeatCooked = new ItemDuckMeat("duck_cooked", false, 6, 3);
 
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
         event.getRegistry().registerAll(
                 gildedBone,
                 gildedSkull,
-                bloomMilk
+                bloomMilk,
+                duckMeatRaw,
+                duckMeatCooked
         );
 
         if (Menagerie.proxy instanceof ClientProxy) {
             AzUtil.registerItemModels(
                     gildedBone,
                     gildedSkull,
-                    bloomMilk
+                    bloomMilk,
+                    duckMeatRaw,
+                    duckMeatCooked
             );
 
             gildedSkull.regSpecialModel();

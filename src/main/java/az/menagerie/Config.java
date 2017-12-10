@@ -12,6 +12,7 @@ public class Config {
     public static boolean loadGelum = true;
     public static boolean loadMoobloom = true;
     public static boolean loadFrog = true;
+    public static boolean loadDuck = true;
 
     public static boolean verboseLogging = false;
 
@@ -37,6 +38,7 @@ public class Config {
         loadGelum = config.getBoolean("Enable Gelum", "Gelum", loadGelum, "Set to false to disable Geluma.");
         loadMoobloom = config.getBoolean("Enable Moobloom", "Moobloom", loadMoobloom, "Set to false to disable Mooblooms.");
         loadFrog = config.getBoolean("Enable Frog", "Frog", loadFrog,"Set to false to disable Frogs");
+        loadDuck = config.getBoolean("Enable Duck", "Duck", loadDuck, "Set to false to disable Ducks");
 
         verboseLogging = config.getBoolean("Verbose Logging", "Debug", verboseLogging, "Set to true for more log info.");
     }

@@ -29,6 +29,7 @@ public class CommonProxy {
         //This is injected during init, so the amount is set, however, it may
         //be possible to randomize the returned quantity using getresult
         GameRegistry.addSmelting(ModItems.gildedBone, new ItemStack(Items.GOLD_NUGGET, 6), 2);
+        GameRegistry.addSmelting(ModItems.duckMeatRaw, new ItemStack(ModItems.duckMeatCooked, 1), 1);
     }
 
     public void postInit(FMLPostInitializationEvent event) {
