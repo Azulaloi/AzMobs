@@ -12,11 +12,17 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 @Mod.EventBusSubscriber(modid = Menagerie.MODID)
 public class ModItems {
 
+    //Gilded
     public static BaseItem gildedBone = new BaseItem("gilded_bone", CreativeTabs.MISC);
     public static ItemGildedSkull gildedSkull = new ItemGildedSkull();
+
+    //Moobloom
     public static ItemBloomMilk bloomMilk = new ItemBloomMilk();
+
+    //Duck
     public static ItemDuckMeat duckMeatRaw = new ItemDuckMeat("duck_raw", true, 1, 0);
     public static ItemDuckMeat duckMeatCooked = new ItemDuckMeat("duck_cooked", false, 6, 3);
+    public static BaseItem fuckDeather = new BaseItem("duck_feather", CreativeTabs.MATERIALS);
 
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
@@ -25,7 +31,8 @@ public class ModItems {
                 gildedSkull,
                 bloomMilk,
                 duckMeatRaw,
-                duckMeatCooked
+                duckMeatCooked,
+                fuckDeather
         );
 
         if (Menagerie.proxy instanceof ClientProxy) {
@@ -34,7 +41,8 @@ public class ModItems {
                     gildedSkull,
                     bloomMilk,
                     duckMeatRaw,
-                    duckMeatCooked
+                    duckMeatCooked,
+                    fuckDeather
             );
 
             gildedSkull.regSpecialModel();
