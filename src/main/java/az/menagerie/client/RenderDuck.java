@@ -8,6 +8,7 @@ import net.minecraft.client.renderer.entity.*;
 import net.minecraft.entity.monster.AbstractSkeleton;
 import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -33,5 +34,12 @@ public class RenderDuck extends RenderLiving<EntityDuck> {
         public Render<? super EntityDuck> createRenderFor(RenderManager man) {
             return new RenderDuck(man);
         }
+    }
+
+    protected float handleRotationFloat(EntityDuck livingBase, float partialTicks)
+    {
+        float f = livingBase.oFlap + (livingBase.wingRotation - livingBase.oFlap) * partialTicks;
+        float f1 = livingBase.oFlapSpeed + (livingBase.destPos - livingBase.oFlapSpeed) * partialTicks;
+        return (MathHelper.sin(f) + 1.0F) * f1;
     }
 }
